@@ -1,7 +1,7 @@
-import FetchDataSteps from "@/components/tutorial/fetch-data-steps";
 import { createClient } from "@/utils/supabase/server";
 import { InfoIcon } from "lucide-react";
 import { redirect } from "next/navigation";
+import { signOutAction } from "../actions";
 
 export default async function ProtectedPage() {
   const supabase = createClient();
@@ -30,8 +30,9 @@ export default async function ProtectedPage() {
         </pre>
       </div>
       <div>
-        <h2 className="font-bold text-2xl mb-4">Next steps</h2>
-        <FetchDataSteps />
+        <form>
+          <button formAction={signOutAction}>Sign Out</button>
+        </form>
       </div>
     </div>
   );
